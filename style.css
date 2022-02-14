@@ -2,3 +2,12 @@
     min-height: 100vh;
     background: linear-gradient(to bottom, rgba(231, 124, 1, 0.192),rgba(88, 240, 0, 0.13));
 }
+
+table td{
+    vertical-align: middle;
+}
+
+#title {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}

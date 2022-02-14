@@ -16,8 +16,8 @@
     <div class="wrapper">
         <div class="container">
             <!-- TOP TITLE -->
-            <div class="row">
-                <div class="col text-center mt-5">
+            <div id="title" class="row text-danger">
+                <div class="col text-center">
                     <h1>Not to do List</h1>
                     <hr>
                 </div>
@@ -28,12 +28,15 @@
             <div class="row">
                         <div class="col">
                             <div class="form-box py-5">
-                                <form class="row row-cols-lg-auto g-3 align-items-center d-flex justify-content-center g-3">
+                                <form 
+                                action="javascript:void(0)"
+                                onsubmit="handleOnSubmit(this)"
+                                class="row row-cols-lg-auto g-3 align-items-center d-flex justify-content-center g-3">
                                     <div class="col-12">
                                       <label class="visually-hidden" for="inlineFormInputGroupUsername">Your Task</label>
                                       <div class="input-group">
                                         
-                                        <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Your Task">
+                                        <input name = "task" type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Your Task" required>
                                       </div>
                                     </div>
 
@@ -41,7 +44,7 @@
                                         <label class="visually-hidden" for="inlineFormInputGroupUsername">Hours</label>
                                         <div class="input-group">
                                           
-                                          <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Hours">
+                                          <input name = "hr" type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Hours" required>
                                         </div>
                                       </div>
                                   
@@ -57,45 +60,12 @@
             <div class="row">
 
                 <div class="col-md-6 mb-5">
-                    <h2 class="text-center">Task List</h2>
+                    <h2 class="text-center ">Task List</h2>
                     <hr/>
                     <div class="list-items">
                         <table class="table table-striped">
-                            <tbody>
-                              <tr>
-                                <td>
-                                    <input type="checkbox" name="" id="">
-                                    Watching TV
-                                </td>
-                                <td>5hr</td>
-                                <td class="text-end">
-                                    <button class="btn btn-sm btn-danger"><i  class="fas fa-trash-alt" title ="Delete"></i></button>
-                                    <button class="btn btn-sm btn-warning"><i class="fas fa-long-arrow-right" title="Mark as Bad List"></i></button>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                    <input type="checkbox" name="" id="">
-                                    Watching TV
-                                </td>
-                                <td>5hr</td>
-                                <td class="text-end">
-                                    <button class="btn btn-sm btn-danger"><i  class="fas fa-trash-alt" title ="Delete"></i></button>
-                                    <button class="btn btn-sm btn-warning"><i class="fas fa-long-arrow-right" title="Mark as Bad List"></i></button>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                    <input type="checkbox" name="" id="">
-                                    Watching TV
-                                </td>
-                                <td>5hr</td>
-                                <td class="text-end">
-                                    <button class="btn btn-sm btn-danger"><i  class="fas fa-trash-alt" title ="Delete"></i></button>
-                                    <button class="btn btn-sm btn-warning"><i class="fas fa-long-arrow-right" title="Mark as Bad List"></i></button>
-                                </td>
-                              </tr>
-                              
+                            <tbody id="task-list">
+                             
                             </tbody>
                           </table>
                     </div>
@@ -107,8 +77,9 @@
                     <hr/>
                     <div class="list-items">
                         <table class="table table-striped">
-                            <tbody>
-                              <tr>
+                            <tbody id="bad-list">
+
+                              <!-- <tr>
                                 <td>
                                     <input type="checkbox" name="" id="">
                                     Watching TV
@@ -140,7 +111,7 @@
                                     <button class="btn btn-sm btn-danger"><i  class="fas fa-trash-alt" title ="Delete"></i></button>
                                     <button class="btn btn-sm btn-warning"><i class="fas fa-long-arrow-right" title="Mark as Bad List"></i></button>
                                 </td>
-                              </tr>
+                              </tr> -->
                               
                             </tbody>
                           </table>
@@ -153,14 +124,10 @@
                
                 
             </div>
-
-            <div class="row col text-center">
-                
-            </div>
             
-            <div class="row mt-5 pb-1 mb-2 fs-3 fw-bolder text-info bg-dark">
+            <div class="row mt-5 pb-1 mb-2 fs-3 fw-bolder text-success bg-light">
                 <div class="col text-center">
-                    Total time allocated this week = 50hrs
+                    Total time allocated this week = <span id="totalHours">0</span>hrs
                 </div>
             </div>
 
